@@ -7,6 +7,8 @@ class Car:
     def __str__(self):
         return f"{self.make} {self.model} {self.year}"
     
+
+    #this method is helpful for debugging for developers
     def __repr__(self):
         return f"Car('{self.make}', '{self.model}', {self.year})"
 

@@ -21,7 +21,7 @@ new_str = str1.__len__()
 
 class Counter:
     def __init__(self):
-        self.value = 0
+        self.value = 1
         
     def count_down(self):
         self.value -= 1
@@ -29,8 +29,16 @@ class Counter:
     def __str__(self):
         return f"Count={self.value}"
 
+    # This is "Operator Overloading".
+    # By defining __add__, we tell Python what to do when we use the '+' sign 
+    # between two Counter objects (e.g., count1 + count2).
     def __add__(self, other):
-        return self.value + other.value
+        if isinstance(other, Counter):
+            return self.value + other.value
+        else:
+            raise Exception("invalid type")
+        # We return the sum of the 'value' attributes of both objects
+       
 
     def count_up(self):
         self.value += 1
